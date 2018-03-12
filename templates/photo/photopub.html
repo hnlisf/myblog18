@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+
+{% block main %}
+      <article class="post">
+				<div>
+
+                    <h3>发布美图</h3>
+                    <label>当前用户：<span style="color: #0e84b5"><img src="{{ user.headshot.url }} " height="30" width="30"/>{{ user.username }}</span></label>
+
+
+                  <form method="post" action="{% url 'photo:pub' user.pk %}" enctype="multipart/form-data">
+                      {% csrf_token %}
+                        <p><label>标题：</label>
+                        {{ form.title }}{{ form.title.errors  }}</p>
+                        <p><label>描述：</label>
+                        {{ form.description }}{{ form.description.errors }}<br></p>
+                        <label>图片：</label>
+                        {{ form.photo }}{{ form.photo.errors }}<br>
+
+                        <div align="center" style="margin-top: 40px;font-size: 20px"><button type="submit">发布</button></div>
+
+                    </form>
+
+                </div>
+
+      </article>
+{% endblock %}
