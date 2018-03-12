@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_sd5s*wlv$+(s=gyf*8=hri5%zvv4r$e2!w+w-pb#t0%^kk4(c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'haystack',
     'debugtools',
     'photo',
+    	
 ]
 
 MIDDLEWARE = [
@@ -127,6 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'statics')
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'upload/')
 
